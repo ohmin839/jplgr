@@ -11,4 +11,8 @@ plugins {
 }
 
 rootProject.name = "jplgr"
-include("jplgr-api")
+include(
+    "jplgr-api",
+    "jplgr-cli-converter",
+    "jplgr-cli-collector"
+)
