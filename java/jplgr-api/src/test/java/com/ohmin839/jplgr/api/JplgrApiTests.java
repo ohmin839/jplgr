@@ -360,7 +360,7 @@ public class JplgrApiTests {
             Pair.of("", Collections.emptyList()),
             Pair.of("α", List.of("α")),
             Pair.of("δ'", List.of("δ'")),
-            Pair.of("ὁ ἄνθρώπός τις", List.of("ὁ", "ἄνθρώπός", "τις"))
+            Pair.of("ὁ ἄνθρωπός τις", List.of("ὁ", "ἄνθρωπός", "τις"))
         ).map(
             pair -> dynamicTest(
                 String.format("\"%s\" -> \"%s\"", pair.getLeft(), pair.getRight()),
