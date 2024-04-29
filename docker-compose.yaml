@@ -4,5 +4,10 @@ services:
     build:
       context: .
       dockerfile: ./docker/gradle/Dockerfile
+  tomcat:
+    build:
+      context: .
+      dockerfile: ./docker/tomcat/Dockerfile
     ports:
+      - 8000
       - 8080
