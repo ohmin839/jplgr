@@ -11,3 +11,24 @@ services:
     ports:
       - 8000
       - 8080
+  mysql:
+    image: mysql:8.3.0
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-root-passwd
+      MYSQL_DATABASE: jplgr
+      MYSQL_USER: jplgr
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql-passwd
+    volumes:
+      - ./.data/mysql:/var/lib/mysql
+      - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 3306
+    secrets:
+      - mysql-root-passwd
+      - mysql-passwd
+secrets:
+  mysql-root-passwd:
+    file: ./.secrets/mysql-root-passwd
+  mysql-passwd:
+    file: ./.secrets/mysql-passwd

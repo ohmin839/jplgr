@@ -1,3 +1,7 @@
 # vscode
 .vscode/
 .devcontainer/
+
+# docker
+.data
+.secrets
