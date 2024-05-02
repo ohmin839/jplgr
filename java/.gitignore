@@ -4,3 +4,6 @@
 # Ignore Gradle build output directory
 bin
 build
+
+# macOS
+.DS_Store
