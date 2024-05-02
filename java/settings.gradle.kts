@@ -14,5 +14,6 @@ rootProject.name = "jplgr"
 include(
     "jplgr-api",
     "jplgr-cli-converter",
-    "jplgr-cli-collector"
+    "jplgr-cli-collector",
+    "jplgr-web-api",
 )
