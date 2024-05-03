@@ -18,13 +18,18 @@ configurations.all {
     }
 }
 
+val servletApiVersion: String by project
 val springVersion: String by project
 dependencies {
     implementation(project(":jplgr-api"))
-    compileOnly("jakarta.servlet:jakarta.servlet-api:5.0.0")
+    compileOnly("jakarta.servlet:jakarta.servlet-api:$servletApiVersion")
 	implementation("org.springframework:spring-context:$springVersion")
 	implementation("org.springframework:spring-web:$springVersion")
 	implementation("org.springframework:spring-webmvc:$springVersion")
+
+    testImplementation(libs.junit.jupiter)
+    testImplementation("jakarta.servlet:jakarta.servlet-api:$servletApiVersion")
+    testImplementation("org.hamcrest:hamcrest:2.2")
 	testImplementation("org.springframework:spring-test:$springVersion")
 }
 
