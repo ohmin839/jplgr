@@ -30,6 +30,9 @@ dependencies {
     testImplementation(libs.junit.jupiter)
     testImplementation("org.apache.commons:commons-lang3:3.14.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    // Use Groovy for demo scripts
+    implementation("org.apache.groovy:groovy:4.0.21")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -42,4 +45,16 @@ java {
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+tasks.register<JavaExec>("runConverterDemo") {
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass = "groovy.ui.GroovyMain"
+    args = listOf("src/script/groovy/converterDemo.groovy")
+}
+
+tasks.register<JavaExec>("runCollectorDemo") {
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass = "groovy.ui.GroovyMain"
+    args = listOf("src/script/groovy/collectorDemo.groovy")
 }
